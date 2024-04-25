@@ -7,7 +7,7 @@ public class MasterServerAgent extends Agent {
         System.out.println("Master Server Agent " + getLocalName() + " started.");
         // Envoie une requête initiale pour démarrer l'analyse
         ACLMessage msg = new ACLMessage(ACLMessage.REQUEST);
-        msg.setContent("Start analysis of forest regions");
+        msg.setContent("analysis of forest regions");
         msg.addReceiver(new jade.core.AID("computingAgent", jade.core.AID.ISLOCALNAME));
         send(msg);
 
@@ -22,7 +22,6 @@ public class MasterServerAgent extends Agent {
                 ACLMessage msg = receive();
                 if (msg != null) {
                     System.out.println("Master Server received: " + msg.getContent());
-                    // Réponse ou actions supplémentaires peuvent être ajoutées ici
                 }
                 block();
             }

@@ -10,8 +10,7 @@ public class ComputingAgent extends Agent {
             public void action() {
                 ACLMessage msg = receive();
                 if (msg != null) {
-                    System.out.println("Computing from data: " + msg.getContent());
-                    // Traitement des données, ex: analyse d'image
+                    System.out.println(getLocalName() + ": Computing from data: " + msg.getContent());
                     ACLMessage reply = msg.createReply();
                     reply.setPerformative(ACLMessage.INFORM);
                     reply.setContent("Analysis completed: Potential fire detected");

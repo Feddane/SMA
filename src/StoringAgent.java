@@ -10,9 +10,7 @@ public class StoringAgent extends Agent {
             public void action() {
                 ACLMessage msg = receive();
                 if (msg != null) {
-                    System.out.println("Storing data: " + msg.getContent());
-                    // Ici, vous pourriez interagir avec une base de données ou un système de
-                    // fichiers
+                    System.out.println(getLocalName() + ": Storing data: " + msg.getContent());
                     ACLMessage reply = msg.createReply();
                     reply.setPerformative(ACLMessage.CONFIRM);
                     reply.setContent("Data stored successfully: " + msg.getContent());
